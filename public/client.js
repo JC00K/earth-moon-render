@@ -57,7 +57,7 @@ earthMaterial.specular = new THREE.Color('grey');
 
 const stars = new THREE.SphereGeometry(90, 32, 32);
 const starMaterial = new THREE.MeshBasicMaterial();
-starMaterial.map = THREE.ImageUtils.loadTexture('/images/galaxy_starfield.png');
+starMaterial.map = THREE.ImageUtils.loadTexture('/images/Nasa.webp');
 starMaterial.side = THREE.BackSide;
 const starMesh = new THREE.Mesh(stars, starMaterial);
 
