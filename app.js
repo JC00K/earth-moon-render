@@ -14,4 +14,4 @@ app.use(
 
 let port = process.env.PORT || 8080;
 
-app.listen(port, () => console.log(`Galaxy at ${port})`);
+app.listen(port, () => console.log(`Galaxy at ${port})`));
