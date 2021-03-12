@@ -12,4 +12,6 @@ app.use(
   express.static(path.join(__dirname, 'node_modules/three/examples/jsm'))
 );
 
-app.listen(8080, () => console.log('Galaxy at http://127.0.0.1:8080'));
+let port = process.env.PORT || 8080;
+
+app.listen(port, () => console.log('Galaxy at http://127.0.0.1:8080'));
