@@ -16,6 +16,8 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 const controls = new OrbitControls(camera, renderer.domElement);
+controls.minDistance = 1.35;
+controls.maxDistance = 2;
 
 const light = new THREE.DirectionalLight(0x333333, 1);
 light.position.set(5, 3, 5).normalize();
