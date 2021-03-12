@@ -29,7 +29,7 @@ const earth = new THREE.SphereBufferGeometry(0.5, 32, 32);
 const earthMaterial = new THREE.MeshPhongMaterial();
 const planetEarth = new THREE.Mesh(earth, earthMaterial);
 earthMaterial.map = THREE.ImageUtils.loadTexture(
-  '/images/earthmap1kflipped.jpg'
+  '/images/Earthwithcloudsflipped.jpeg'
 );
 earthMaterial.side = THREE.BackSide;
 scene.add(planetEarth);
@@ -45,15 +45,13 @@ earthMaterial.specularMap = THREE.ImageUtils.loadTexture(
 );
 earthMaterial.specular = new THREE.Color('grey');
 
-// Clouds
-// new THREE.Mesh(
-//   new THREE.SphereGeometry(0.503, 32, 32),
-//   new THREE.MeshPhongMaterial({
-//     map: THREE.ImageUtils.loadTexture('/images/earthcloudmap.jpg'),
-//     transparent: true,
-//     depthWrite: false,
-//   })
-// );
+const clouds = new THREE.SphereBufferGeometry(0.51, 32, 32);
+const cloudMaterial = new THREE.MeshPhongMaterial();
+const cloudMesh = (clouds, cloudMaterial);
+cloudMaterial.map = THREE.ImageUtils.loadTexture(
+  '/images/earthcloudmapflipped.jpg'
+);
+scene.add(cloudMesh);
 
 // Stars
 
