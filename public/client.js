@@ -60,7 +60,7 @@ const moonMaterial = new THREE.MeshPhongMaterial({
 moonMaterial.bumpMap = THREE.ImageUtils.loadTexture('/images/moontextures.jpg');
 moonMaterial.bumpScale = 0.05;
 const moon = new THREE.Mesh(moonGeometry, moonMaterial);
-moon.position.set(3, 0, 0);
+moon.position.set(0, 0, 0);
 scene.add(moon);
 
 // Moon Orbit
