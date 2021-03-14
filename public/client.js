@@ -10,7 +10,7 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   1000
 );
-camera.position.z = 2.2;
+camera.position.z = 3;
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
@@ -66,19 +66,19 @@ moon.position.set(3, 0, 0);
 scene.add(moon);
 
 // Moon Orbit
-const moonRadius = 3;
+const moonRadius = 2.8;
 let startAngle = 3.5;
-const angleIncrement = (2 * Math.PI) / 1000;
+const angleIncrement = 0.009;
 
-// Clouds
+// Clouds - Next Update
 
-const clouds = new THREE.SphereBufferGeometry(0.71, 32, 32);
-const cloudMaterial = new THREE.MeshPhongMaterial();
-const cloudMesh = (clouds, cloudMaterial);
-cloudMaterial.map = THREE.ImageUtils.loadTexture(
-  '/images/earthcloudmapflipped.jpg'
-);
-scene.add(cloudMesh);
+// const clouds = new THREE.SphereBufferGeometry(0.71, 32, 32);
+// const cloudMaterial = new THREE.MeshPhongMaterial();
+// const cloudMesh = (clouds, cloudMaterial);
+// cloudMaterial.map = THREE.ImageUtils.loadTexture(
+//   '/images/earthcloudmapflipped.jpg'
+// );
+// scene.add(cloudMesh);
 
 // Stars
 
@@ -110,11 +110,11 @@ let animate = function () {
   earth.rotation.x += 0;
   earth.rotation.y += -0.001;
   moon.rotation.x += 0;
-  moon.rotation.y += 0.0001;
+  moon.rotation.y += -0.0001;
 
   startAngle += angleIncrement;
   moon.position.x = moonRadius * Math.cos(startAngle);
-  moon.position.y = moonRadius * Math.sin(startAngle);
+  moon.position.z = moonRadius * Math.sin(startAngle);
   renderer.render(scene, camera);
   controls.update();
   render();
