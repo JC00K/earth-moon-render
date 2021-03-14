@@ -1,6 +1,4 @@
 node_modules/
-# public/bundle.js
-# public/bundle.js.map
-# /build/three.module.js
-# /jsm/controls/OrbitControls.js
-# /jsm/libs/stats.module.js
+bundle.js
+bundle.js.map
+
