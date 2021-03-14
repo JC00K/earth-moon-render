@@ -28,11 +28,14 @@ scene.add(new THREE.AmbientLight(0xffffff));
 // Earth
 
 const earthGeometry = new THREE.SphereBufferGeometry(0.7, 32, 32);
-const earthMaterial = new THREE.MeshPhongMaterial();
+const earthMaterial = new THREE.MeshPhongMaterial({
+  map: THREE.ImageUtils.loadTexture('/images/Earthwithcloudsflipped.jpeg'),
+  color: 0xaaaaaa,
+  specular: 0x333333,
+  shininess: 25,
+});
 const earth = new THREE.Mesh(earthGeometry, earthMaterial);
-earthMaterial.map = THREE.ImageUtils.loadTexture(
-  '/images/Earthwithcloudsflipped.jpeg'
-);
+
 earthMaterial.side = THREE.BackSide;
 scene.add(earth);
 
@@ -54,11 +57,18 @@ earthMaterial.specular = new THREE.Color('grey');
 
 const moonGeometry = new THREE.SphereGeometry(0.2, 32, 32);
 const moonMaterial = new THREE.MeshPhongMaterial({
-  map: THREE.ImageUtils.loadTexture('/images/moonmapflipped.jpeg'),
+  map: THREE.ImageUtils.loadTexture('/images/moonmap.jpg'),
 });
+moonMaterial.bumpMap = THREE.ImageUtils.loadTexture('/images/moontextures.jpg');
+moonMaterial.bumpScale = 0.05;
 const moon = new THREE.Mesh(moonGeometry, moonMaterial);
 moon.position.set(3, 0, 0);
 scene.add(moon);
+
+// Moon Orbit
+const moonRadius = 3;
+let startAngle = 3.5;
+const angleIncrement = (2 * Math.PI) / 1000;
 
 // Clouds
 
@@ -74,7 +84,7 @@ scene.add(cloudMesh);
 
 const stars = new THREE.SphereGeometry(90, 32, 32);
 const starMaterial = new THREE.MeshBasicMaterial();
-starMaterial.map = THREE.ImageUtils.loadTexture('/images/Nasa.webp');
+starMaterial.map = THREE.ImageUtils.loadTexture('/images/stars.jpg');
 starMaterial.side = THREE.BackSide;
 const starMesh = new THREE.Mesh(stars, starMaterial);
 
@@ -99,6 +109,13 @@ let animate = function () {
   requestAnimationFrame(animate);
   earth.rotation.x += 0;
   earth.rotation.y += -0.001;
+  moon.rotation.x += 0;
+  moon.rotation.y += 0.0001;
+
+  startAngle += angleIncrement;
+  moon.position.x = moonRadius * Math.cos(startAngle);
+  moon.position.y = moonRadius * Math.sin(startAngle);
+  renderer.render(scene, camera);
   controls.update();
   render();
   stats.update();
