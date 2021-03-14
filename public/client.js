@@ -27,7 +27,7 @@ scene.add(new THREE.AmbientLight(0xffffff));
 
 // Earth
 
-const earthGeometry = new THREE.SphereBufferGeometry(0.9, 32, 32);
+const earthGeometry = new THREE.SphereBufferGeometry(0.7, 32, 32);
 const earthMaterial = new THREE.MeshPhongMaterial({
   map: THREE.ImageUtils.loadTexture('/images/earthwithclouds.jpeg'),
   color: 0xaaaaaa,
