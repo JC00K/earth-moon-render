@@ -65,7 +65,7 @@ scene.add(moon);
 
 // Moon Orbit
 const moonRadius = 2.6;
-let startAngle = 3.5;
+let startAngle = 125.5;
 const angleIncrement = 0.001;
 
 // Clouds - Next Update
