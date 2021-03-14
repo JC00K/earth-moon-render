@@ -73,21 +73,19 @@ const angleIncrement = 0.001;
 // const clouds = new THREE.SphereBufferGeometry(0.71, 32, 32);
 // const cloudMaterial = new THREE.MeshPhongMaterial();
 // const cloudMesh = (clouds, cloudMaterial);
-// cloudMaterial.map = THREE.ImageUtils.loadTexture(
-//   '/images/earthcloudmapflipped.jpg'
-// );
+// cloudMaterial.map = THREE.ImageUtils.loadTexture('/images/earthcloudmap.jpg');
 // scene.add(cloudMesh);
 
 // Stars
 
-const stars = new THREE.SphereGeometry(90, 32, 32);
+const starGeometry = new THREE.SphereGeometry(90, 32, 32);
 const starMaterial = new THREE.MeshBasicMaterial();
 starMaterial.map = THREE.ImageUtils.loadTexture('/images/stars.jpg');
 starMaterial.side = THREE.BackSide;
-const starMesh = new THREE.Mesh(stars, starMaterial);
+const stars = new THREE.Mesh(starGeometry, starMaterial);
 
 // Adding Star Background
-scene.add(starMesh);
+scene.add(stars);
 
 window.addEventListener(
   'resize',
