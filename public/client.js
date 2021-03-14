@@ -29,27 +29,25 @@ scene.add(new THREE.AmbientLight(0xffffff));
 
 const earthGeometry = new THREE.SphereBufferGeometry(0.7, 32, 32);
 const earthMaterial = new THREE.MeshPhongMaterial({
-  map: THREE.ImageUtils.loadTexture('/images/Earthwithcloudsflipped.jpeg'),
+  map: THREE.ImageUtils.loadTexture('/images/earthwithclouds.jpeg'),
   color: 0xaaaaaa,
   specular: 0x333333,
   shininess: 25,
 });
 const earth = new THREE.Mesh(earthGeometry, earthMaterial);
 
-earthMaterial.side = THREE.BackSide;
+earthMaterial.side = THREE.FrontSide;
 scene.add(earth);
 
 // Bumps for texturing
 
-earthMaterial.bumpMap = THREE.ImageUtils.loadTexture(
-  '/images/earthbump1kflipped.jpg'
-);
+earthMaterial.bumpMap = THREE.ImageUtils.loadTexture('/images/earthbump1k.jpg');
 earthMaterial.bumpScale = 0.05;
 
 // Specular Texture
 
 earthMaterial.specularMap = THREE.ImageUtils.loadTexture(
-  '/images/earthspec1kflipped.jpg'
+  '/images/earthspec1k.jpg'
 );
 earthMaterial.specular = new THREE.Color('grey');
 
